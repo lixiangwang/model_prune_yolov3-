@@ -45,3 +45,25 @@
     CUDA_VISIBLE_DEVICES=0 python slim_prune.py --cfg cfg/dense_yolov3_4.cfg --data data/visdrone.data --weights weights/best.pt --global_percent 0.8 --layer_keep 0.01 --img_size 800
 
 全局剪80%,评估的图像分辨率为800：
+
+![box数量](pic/1.png)
+
+## 层剪枝
+    CUDA_VISIBLE_DEVICES=0 python layer_prune.py --cfg cfg/prune_0.8_keep_0.01_dense_yolov3_4.cfg --data data/visdrone.data --weights weights/prune_0.8_keep_0.01_best.weights --shortcuts 10 --img_size 800
+
+剪掉10个shortcut层,评估的图像分辨率为800：
+
+![box数量](pic/2.png)
+
+## 微调恢复训练
+
+    CUDA_VISIBLE_DEVICES=0 python train.py --cfg cfg/prune_10_shortcut_prune_0.8_keep_0.01_dense_yolov3_4.cfg --data data/visdrone.data --weights weights/prune_10_shortcut_prune_0.8_keep_0.01_best.weights --epoch 150 --batch-size 16
+
+训练结果：
+
+![box数量](pic/results.png)
+
+
+**最终的结果对比**
+
+![box数量](pic/3.png)
