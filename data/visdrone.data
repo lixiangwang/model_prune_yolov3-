@@ -1,0 +1,7 @@
+classes=10
+train=/home/tione/notebook/seu/VisDrone2019-DET-train/images.txt    
+valid=/home/tione/notebook/seu/VisDrone2019-DET-val/images.txt
+names=data/visdrone.names
+backup=backup/
+eval=visdrone
+
