@@ -46,14 +46,14 @@
 
 全局剪80%,评估的图像分辨率为800：
 
-![channel](pic/1.png)
+![channel](pic/1.PNG)
 
 ## 层剪枝
     CUDA_VISIBLE_DEVICES=0 python layer_prune.py --cfg cfg/prune_0.8_keep_0.01_dense_yolov3_4.cfg --data data/visdrone.data --weights weights/prune_0.8_keep_0.01_best.weights --shortcuts 10 --img_size 800
 
 剪掉10个shortcut层,评估的图像分辨率为800：
 
-![layer](pic/2.png)
+![layer](pic/2.PNG)
 
 ## 微调恢复训练
 
@@ -66,4 +66,4 @@
 
 **最终的结果对比**
 
-![compare](pic/3.png)
+![compare](pic/3.PNG)
